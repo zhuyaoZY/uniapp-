@@ -85,8 +85,25 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%, -50%);
+			// transform: translate(-50%, -50%);
 			border: 40rpx solid rgba(255, 255, 255, .5);
+			  -webkit-animation: play 10s linear infinite;
+			       -moz-animation: play 10s linear infinite;
+			            animation: play 10s linear infinite;
+			  
+		}
+		//旋转特效
+		@-webkit-keyframes play{
+		    0%{-webkit-transform: translate(-50%, -50%) rotate(0deg);}
+		    100%{transform: translate(-50%, -50%) rotate(360deg);}
+		}
+		@-moz-keyframes play {
+		    0%{-moz-transform: translate(-50%, -50%) rotate(0deg);}
+		    100%{transform: translate(-50%, -50%) rotate(360deg);}
+		}
+		@keyframes play{
+		    0%{transform: translate(-50%, -50%) rotate(0deg);}
+		    100%{transform: translate(-50%, -50%) rotate(360deg);}
 		}
 
 		.dian {
@@ -114,4 +131,5 @@
 			margin-top: 20rpx;
 		}
 	}
+	
 </style>
