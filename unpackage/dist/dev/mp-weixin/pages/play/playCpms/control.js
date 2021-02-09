@@ -163,8 +163,11 @@ var _default =
 
   methods: {
     //点击播放按钮播放
-    playClick: function playClick() {
+    playClick: function playClick() {var _this = this;
       //判断isplay是为播放状态
+      setTimeout(function () {
+        _this.$emit('isplay', _this.isplay);
+      });
       if (!this.isplay) {
         if (this.bgAudioMannager) {
           this.bgAudioMannager.play();
