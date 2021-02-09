@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "usingComponents": {}
+}

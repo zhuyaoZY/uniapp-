@@ -1,0 +1,83 @@
+.content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 750rpx;
+  height: 200rpx;
+}
+.content view {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  height: 100%;
+  text-align: center;
+}
+.content view image {
+  width: 100rpx;
+  height: 100%;
+}
+.content .center image {
+  width: 200rpx;
+}
+
+page {
+  height: 100%;
+}
+.musicplay {
+  width: 750rpx;
+  height: 100%;
+  position: relative;
+}
+.control {
+  position: absolute;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+}
+.playImg {
+  width: 550rpx;
+  height: 550rpx;
+  border-radius: 50%;
+  border: 2px solid #d996e6;
+  position: absolute;
+  top: 50rpx;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+.playImg image {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 40rpx solid rgba(255, 255, 255, 0.5);
+}
+.playImg .dian {
+  background-color: #843196;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 460rpx;
+  right: 68rpx;
+}
+.musictitle {
+  width: 750rpx;
+  height: 250rpx;
+  position: absolute;
+  top: 640rpx;
+  text-align: center;
+}
+.musictitle .title {
+  font-size: 50rpx;
+}
+.musictitle .geshou {
+  font-size: 24rpx;
+  color: #ccc;
+  margin-top: 20rpx;
+}
+
