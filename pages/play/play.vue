@@ -1,7 +1,7 @@
 <template>
 	<view class="musicplay">
 		<view class="playImg">
-			<image :src="musicdata[now].album.picUrl"></image>
+			<image :class="isplays" :src="musicdata[now].album.picUrl"></image>
 			<view class="dian"></view>
 		</view>
 		<view class="musictitle">
@@ -9,7 +9,7 @@
 			<view class="geshou">歌手:{{musicdata[now].artists[0].name}}</view>
 		</view>
 		<view class="control">
-			<play-control :audio="audio"></play-control>
+			<play-control @isplay="isPlays" :audio="audio"></play-control>
 		</view>
 	</view>
 </template>
@@ -23,7 +23,8 @@
 				//歌曲详情数据
 				musicdata: [],
 				audio: [],
-				now: 0
+				now: 0,
+				isplay:false
 			}
 		},
 		components: {
@@ -39,6 +40,11 @@
 				this.musicdata = data
 			})
 		},
+		computed:{
+			isplays(){
+				return this.isplay?"active":"paused"
+			}
+		},
 		methods: {
 			//请求歌曲播放地址
 			getmusicplay() {
@@ -49,6 +55,10 @@
 						console.log(res);
 					}
 				})
+			},
+			isPlays(isplay){
+				this.isplay=isplay
+				console.log(isplay);
 			}
 		}
 	}
@@ -104,6 +114,14 @@
 		@keyframes play{
 		    0%{transform: translate(-50%, -50%) rotate(0deg);}
 		    100%{transform: translate(-50%, -50%) rotate(360deg);}
+		}
+		//动画播放
+		.active {
+		  animation-play-state: running;
+		}
+		//动画暂停
+		.paused {
+		  animation-play-state: paused;
 		}
 
 		.dian {

@@ -164,13 +164,19 @@ var _control = _interopRequireDefault(__webpack_require__(/*! ./playCpms/control
 //
 //
 var _default = { data: function data() {return { id: 0, //歌曲详情数据
-      musicdata: [], audio: [], now: 0 };}, components: { playControl: _control.default }, onLoad: function onLoad(options) {var _this = this; //接收歌曲id
-    this.id = options.id;this.now = options.crentindex;this.getmusicplay();
+      musicdata: [], audio: [], now: 0, isplay: false };}, components: { playControl: _control.default }, onLoad: function onLoad(options) {var _this = this; //接收歌曲id
+    this.id = options.id;this.now = options.crentindex;
+    this.getmusicplay();
     //接收传递过来的歌曲列表数据
     uni.$on("test", function (data) {
       _this.musicdata = data;
     });
   },
+  computed: {
+    isplays: function isplays() {
+      return this.isplay ? "active" : "paused";
+    } },
+
   methods: {
     //请求歌曲播放地址
     getmusicplay: function getmusicplay() {var _this2 = this;
@@ -181,6 +187,10 @@ var _default = { data: function data() {return { id: 0, //歌曲详情数据
           console.log(res);
         } });
 
+    },
+    isPlays: function isPlays(isplay) {
+      this.isplay = isplay;
+      console.log(isplay);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
@@ -362,8 +372,11 @@ var _default =
 
   methods: {
     //点击播放按钮播放
-    playClick: function playClick() {
+    playClick: function playClick() {var _this = this;
       //判断isplay是为播放状态
+      setTimeout(function () {
+        _this.$emit('isplay', _this.isplay);
+      });
       if (!this.isplay) {
         if (this.bgAudioMannager) {
           this.bgAudioMannager.play();

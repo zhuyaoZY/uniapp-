@@ -75,6 +75,14 @@ page {
             transform: translate(-50%, -50%) rotate(360deg);
 }
 }
+.playImg .active {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.playImg .paused {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
 .playImg .dian {
   background-color: #843196;
   width: 20rpx;

@@ -33,6 +33,9 @@
 			//点击播放按钮播放
 			playClick() {
 				//判断isplay是为播放状态
+				setTimeout(()=>{
+					this.$emit('isplay',this.isplay)
+				})
 				if(!this.isplay){
 					if(this.bgAudioMannager){
 						this.bgAudioMannager.play()	
